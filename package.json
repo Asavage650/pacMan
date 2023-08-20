@@ -16,6 +16,5 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "apollo-link-context": "^1.0.20"
   }
 }
