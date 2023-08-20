@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Jumbotron,
-  Container,
-  CardColumns,
-  Card,
-  Button,
-} from "react-bootstrap";
+import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { useQuery, useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { GET_ME } from "../utils/queries";
@@ -42,11 +36,11 @@ const SavedBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark p-5">
+      <div fluid className="text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
-      </Jumbotron>
+      </div>
       <Container>
         <h2 className="pt-5">
           {userData.savedBooks.length
@@ -55,10 +49,10 @@ const SavedBooks = () => {
               }:`
             : "You have no saved books!"}
         </h2>
-        <CardColumns>
+        <Row>
           {userData.savedBooks.map((book) => {
             return (
-              <Card md="4">
+              <Col md="4">
                 <Card key={book.bookId} border="dark">
                   {book.image ? (
                     <Card.Img
@@ -79,10 +73,10 @@ const SavedBooks = () => {
                     </Button>
                   </Card.Body>
                 </Card>
-              </Card>
+              </Col>
             );
           })}
-        </CardColumns>
+        </Row>
       </Container>
     </>
   );
